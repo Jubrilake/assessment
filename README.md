@@ -20,5 +20,5 @@ Here's a brief overview of how the user flow works:
 8. View Registered Teachers: To view the list of registered teachers, navigate to http://localhost:3000/teachers.
 9. View Registered Students: Similarly, access the list of registered students at http://localhost:3000/students.
 
-D. User Testing
+D. Unit Testing
 For unit testing, I utilized Playwright, a testing framework that enables automation of Chromium, Firefox, and WebKit browsers through a unified API. Details regarding the implementation can be found in the `/tests/assessment.test.ts` file.

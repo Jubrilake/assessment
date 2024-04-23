@@ -5,7 +5,7 @@ import { ColumnWrapper } from '../_components/studentTable/DataEngine/column';
 import { StudentDataType } from '../_components/studentTable/DataEngine/students.model';
 
 async function fetchStudentData() {
-  const res = await fetch("http://localhost:3001/api/student", { next: { revalidate: 0 } });
+  const res = await fetch("http://localhost:3000/api/student", { next: { revalidate: 0 } });
   return res.json();
 }
 

@@ -5,7 +5,7 @@ import { ColumnWrapper } from '@/app/_components/teacherTable/DataEngine/column'
 import { TeacherDataType } from '@/app/_components/teacherTable/DataEngine/teachers.model';
 
 async function fetchStudentData() {
-  const res = await fetch("http://localhost:3001/api/teacher", { next: { revalidate: 0 } });
+  const res = await fetch("http://localhost:3000/api/teacher", { next: { revalidate: 0 } });
   return res.json();
 }
 
@@ -22,6 +22,10 @@ export default function StudentsPage() {
           year: 'numeric',
           month: 'long',
           day: 'numeric',
+        }),
+        salary: parseFloat(teacherData.salary).toLocaleString('en-NG', {
+          style: 'currency',
+          currency: 'NGN',
         }),
       })));
     }

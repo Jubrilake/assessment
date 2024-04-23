@@ -45,8 +45,15 @@ const TeacherForm = () => {
     lastName: z.string().nonempty(),
     firstName: z.string().nonempty(),
     dateOfBirth: z.date().refine((date) => {
-      return date !== undefined && date !== null;
-    }, { message: "A date of birth is required." }),
+      const today = new Date();
+      const birthDate = new Date(date);
+      let age = today.getFullYear() - birthDate.getFullYear();
+      const monthDiff = today.getMonth() - birthDate.getMonth();
+      if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+        age--;
+      }
+      return age >= 21;
+    }, { message: "You must be at least 21 years old." }),
     phoneNumber: z.string().min(11),
     salary: z.string(),
   });
@@ -65,7 +72,7 @@ const TeacherForm = () => {
   });
 
   const onSubmit = async (data:any) => {
-    await fetch('http://localhost:3001/api/teacher',{
+    await fetch('http://localhost:3000/api/teacher',{
       method:"POST",
       body:JSON.stringify(data),
       headers:{
@@ -91,24 +98,23 @@ const TeacherForm = () => {
               <div className="grid grid-cols-2 gap-x-3 gap-y-4 items-center mb-4">
                 <FormField
                   control={form.control}
-          name="title"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Title</FormLabel>
-              <Select onValueChange={field.onChange} defaultValue={field.value}>
-                <FormControl>
-                  <SelectTrigger>
-                    <SelectValue placeholder="Choose a title" />
-                  </SelectTrigger>
-                </FormControl>
-                <SelectContent>
-                {TitleOptions.map((option) => (
-                    <SelectItem key={option} value={option}>{option}</SelectItem>
-                ))}
-                </SelectContent>
-              </Select>
-              
-            </FormItem>
+                  name="title"
+                  render={({ field }) => (
+                  <FormItem>
+                   <FormLabel>Title</FormLabel>
+                    <Select onValueChange={field.onChange} defaultValue={field.value}>
+                     <FormControl>
+                      <SelectTrigger>
+                       <SelectValue placeholder="Choose a title" />
+                      </SelectTrigger>
+                     </FormControl>
+                      <SelectContent>
+                       {TitleOptions.map((option) => (
+                        <SelectItem key={option} value={option}>{option}</SelectItem>
+                       ))}
+                      </SelectContent>
+                   </Select>
+                 </FormItem>
                   )}
                 />
                 <FormField
@@ -176,6 +182,9 @@ const TeacherForm = () => {
                           />
                         </PopoverContent>
                       </Popover>
+                      {form.formState.errors.dateOfBirth && (
+                        <span className="text-red-500">{form.formState.errors.dateOfBirth.message}</span>
+                      )}
                     </FormItem>
                   )}
                 />

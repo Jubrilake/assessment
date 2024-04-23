@@ -36,12 +36,19 @@ const StudentForm = () => {
     lastName: z.string().nonempty(),
     firstName: z.string().nonempty(),
     dateOfBirth: z.date().refine((date) => {
-      return date !== undefined && date !== null;
-    }, { message: "A date of birth is required." }),
+      const today = new Date();
+      const birthDate = new Date(date);
+      let age = today.getFullYear() - birthDate.getFullYear();
+      const monthDiff = today.getMonth() - birthDate.getMonth();
+      if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+        age--;
+      }
+      return age <= 22;
+    }, { message: "Your age must not be more than 22 years old." }),
     phoneNumber: z.string().nonempty(),
     nin: z.string().min(9).max(9),
-   
   });
+  
 
   const form = useForm({
     resolver: zodResolver(formSchema),
@@ -55,7 +62,7 @@ const StudentForm = () => {
   });
 
   const onSubmit = async (data:any) => {
-    await fetch('http://localhost:3001/api/student',{
+    await fetch('http://localhost:3000/api/student',{
       method:"POST",
       body:JSON.stringify(data),
       headers:{
@@ -142,6 +149,9 @@ const StudentForm = () => {
                           />
                         </PopoverContent>
                       </Popover>
+                      {form.formState.errors.dateOfBirth && (
+                        <span className="text-red-500">{form.formState.errors.dateOfBirth.message}</span>
+                      )}
                     </FormItem>
                   )}
                 />

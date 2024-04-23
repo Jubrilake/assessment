@@ -1,14 +1,23 @@
 [
   {
-    "student": [],
+    "student": [
+      {
+        "lastName": "Leo",
+        "firstName": "Ben",
+        "dateOfBirth": "2018-11-06T23:00:00.000Z",
+        "phoneNumber": "098106453311",
+        "nin": "123456789"
+      }
+    ],
     "teacher": [
       {
         "title": "Mr",
         "lastName": "Doe",
         "firstName": "John",
-        "dateOfBirth": "2023-08-03T23:00:00.000Z",
-        "phoneNumber": "08106453311",
-        "salary": "10000"
+        "dateOfBirth": "1997-07-09T23:00:00.000Z",
+        "phoneNumber": "098106453311",
+        "nin": "123456789",
+        "salary": "600000"
       }
     ]
   }

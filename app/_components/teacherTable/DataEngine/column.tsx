@@ -117,7 +117,7 @@ export function ColumnWrapper() {
                 <AlertDialogHeader>
                   <AlertDialogTitle>Delete Post</AlertDialogTitle>
                   <AlertDialogDescription>
-                    Are you sure you want to delete this post: {row.original.lastName}? You cannot undo this action 
+                    Are you sure you want to delete this user: {row.original.lastName}? You cannot undo this action 
                   </AlertDialogDescription>
                 </AlertDialogHeader>
                 <AlertDialogFooter>
