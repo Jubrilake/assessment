@@ -14,6 +14,13 @@
         "dateOfBirth": "2024-04-02T23:00:00.000Z",
         "phoneNumber": "08070422399",
         "nin": "111111111"
+      },
+      {
+        "lastName": "Kim",
+        "firstName": "KAL",
+        "dateOfBirth": "2024-04-01T23:00:00.000Z",
+        "phoneNumber": "08070422399",
+        "nin": "100000111"
       }
     ],
     "teacher": [

@@ -1,25 +1,11 @@
-
-import { Button } from "@/components/ui/button"
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
 import {
   Tabs,
-  TabsContent,
   TabsList,
   TabsTrigger,
 } from "@/components/ui/tabs"
 import TeacherForm from "./_components/onboarding/TeacherForm"
 import StudentForm from "./_components/onboarding/StudentForm"
  
-
 export default function Home() {
   return (
     <main className="flex flex-col min-h-screen justify-center items-center bg-blue-900">
