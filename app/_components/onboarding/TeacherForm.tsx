@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { format } from "date-fns";
 import { CalendarIcon } from "lucide-react";
 import { Calendar } from "@/components/ui/calendar";
+import toast, { Toaster } from 'react-hot-toast';
 import {
   Card,
   CardContent,
@@ -64,19 +65,27 @@ const TeacherForm = () => {
     },
   });
 
-  const onSubmit = (data:any) => {
-    // Retrieve existing data from localStorage
-    const existingDataString = localStorage.getItem("teachers");
-    const existingData = existingDataString ? JSON.parse(existingDataString) : [];
+  const onSubmit = async (data:any) => {
+    // // Retrieve existing data from localStorage
+    // const existingDataString = localStorage.getItem("teachers");
+    // const existingData = existingDataString ? JSON.parse(existingDataString) : [];
   
-    // Push the new data into the existing array
-    existingData.push(data);
+    // // Push the new data into the existing array
+    // existingData.push(data);
   
-    // Store the updated array back into localStorage
-    localStorage.setItem("teachers", JSON.stringify(existingData));
+    // // Store the updated array back into localStorage
+    // localStorage.setItem("teachers", JSON.stringify(existingData));
+    await fetch('http://localhost:3001/api/teacher',{
+      method:"POST",
+      body:JSON.stringify(data),
+      headers:{
+        "Content-Type":"application/json"
+      }
+    })
   
     // Reset the form
     form.reset();
+    toast.success('Created Successfully...')
   };
   
   return (
@@ -228,6 +237,7 @@ const TeacherForm = () => {
           </Form>
         </CardContent>
       </Card>
+      <Toaster />
     </TabsContent>
   );
 };

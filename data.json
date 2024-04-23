@@ -1,0 +1,47 @@
+[
+  {
+    "student": [
+      {
+        "lastName": "Akerele",
+        "firstName": "Adebayo",
+        "dateOfBirth": "2024-04-03T23:00:00.000Z",
+        "phoneNumber": "08070422399",
+        "nin": "100003333"
+      },
+      {
+        "lastName": "Alonge",
+        "firstName": "Emmanuel",
+        "dateOfBirth": "2024-04-02T23:00:00.000Z",
+        "phoneNumber": "08070422399",
+        "nin": "111111111"
+      }
+    ],
+    "teacher": [
+      {
+        "title": "Mr",
+        "lastName": "Mary",
+        "firstName": "Doe",
+        "dateOfBirth": "20 june 19933",
+        "phoneNumber": "08106453311",
+        "nin": "123456789",
+        "salary": "20000"
+      },
+      {
+        "title": "Mr",
+        "lastName": "Akerele",
+        "firstName": "Adebayo",
+        "dateOfBirth": "2024-04-03T23:00:00.000Z",
+        "phoneNumber": "098106453311",
+        "salary": "1000"
+      },
+      {
+        "title": "Miss",
+        "lastName": "Kim",
+        "firstName": "Kad",
+        "dateOfBirth": "2024-04-02T23:00:00.000Z",
+        "phoneNumber": "11111111111",
+        "salary": "1000"
+      }
+    ]
+  }
+]

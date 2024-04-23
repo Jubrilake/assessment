@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { format } from "date-fns";
 import { CalendarIcon } from "lucide-react";
 import { Calendar } from "@/components/ui/calendar";
+import toast, { Toaster } from 'react-hot-toast';
 import {
   Card,
   CardContent,
@@ -29,16 +30,8 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 
 const StudentForm = () => {
-
   const formSchema = z.object({
     lastName: z.string().nonempty(),
     firstName: z.string().nonempty(),
@@ -46,6 +39,7 @@ const StudentForm = () => {
       return date !== undefined && date !== null;
     }, { message: "A date of birth is required." }),
     phoneNumber: z.string().nonempty(),
+    nin: z.string().min(9).max(9),
    
   });
 
@@ -56,24 +50,24 @@ const StudentForm = () => {
       firstName: "",
       dateOfBirth: null, // Provide null as default value for date fields
       phoneNumber: "",
+      nin: "",
     },
   });
 
-  const onSubmit = (data:any) => {
-    // Retrieve existing data from localStorage
-    const existingDataString = localStorage.getItem("students");
-    const existingData = existingDataString ? JSON.parse(existingDataString) : [];
-  
-    // Push the new data into the existing array
-    existingData.push(data);
-  
-    // Store the updated array back into localStorage
-    localStorage.setItem("students", JSON.stringify(existingData));
+  const onSubmit = async (data:any) => {
+    console.log(data)
+    await fetch('http://localhost:3001/api/student',{
+      method:"POST",
+      body:JSON.stringify(data),
+      headers:{
+        "Content-Type":"application/json"
+      }
+    })
   
     // Reset the form
     form.reset();
+    toast.success('Created Successfully...')
   };
-
   return (
     <TabsContent value="student" className="overflow">
       <Card>
@@ -166,6 +160,20 @@ const StudentForm = () => {
                     </FormItem>
                   )}
                 />
+                  <FormField
+                  control={form.control}
+                  name="nin"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>
+                        National Identification Number (NIN)
+                      </FormLabel>
+                      <FormControl>
+                        <Input type="number" placeholder="123456789" {...field} />
+                      </FormControl>
+                    </FormItem>
+                  )}
+                />
               </div>
               <Button className="w-full bg-blue-900 hover:bg-blue-800" type="submit">
                 Submit
@@ -174,6 +182,7 @@ const StudentForm = () => {
           </Form>
         </CardContent>
       </Card>
+      <Toaster />
     </TabsContent>
   );
 };

@@ -18,9 +18,9 @@ export async function GET(){
     
     // Parse the JSON data
     const jsonData = JSON.parse(data);
-    let student = jsonData[0]["student"];
-console.log(student)
-return new Response(JSON.stringify(student))
+    let teacher = jsonData[0]["teacher"];
+console.log(teacher)
+return new Response(JSON.stringify(teacher))
 }
 
 // Post req
@@ -33,17 +33,19 @@ const data = fs.readFileSync(filePath, 'utf-8');
 
 // Parse the JSON data
 const jsonData = JSON.parse(data);
-let students = jsonData[0]["student"];
-const newStudent  = {
+let teachers = jsonData[0]["teacher"];
+const newTeacher  = {
+    title: res.title,
     lastName: res.lastName,
     firstName: res.firstName,
     dateOfBirth: res.dateOfBirth,
     phoneNumber: res.phoneNumber,
-    nin: res.nin
+    nin: res.nin,
+    salary:res.salary
 }
 
-students = [...students, newStudent]
-jsonData[0]['student'] = students
+teachers = [...teachers, newTeacher]
+jsonData[0]['teacher'] = teachers
 fs.writeFileSync(filePath, JSON.stringify(jsonData, null, 2));
 return new Response(JSON.stringify(jsonData), {
     status:201
