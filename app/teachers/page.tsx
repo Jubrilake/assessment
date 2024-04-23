@@ -18,7 +18,6 @@ export default function StudentsPage() {
       setTeacherData(data.map((teacherData:any) => ({
         id: Math.floor(Math.random() * (200 - 10)) + 10,
         ...teacherData,
-        // Convert date format here
         dateOfBirth: new Date(teacherData.dateOfBirth).toLocaleDateString('en-US', {
           year: 'numeric',
           month: 'long',

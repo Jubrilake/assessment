@@ -48,14 +48,13 @@ const StudentForm = () => {
     defaultValues: {
       lastName: "",
       firstName: "",
-      dateOfBirth: null, // Provide null as default value for date fields
+      dateOfBirth: null,
       phoneNumber: "",
       nin: "",
     },
   });
 
   const onSubmit = async (data:any) => {
-    console.log(data)
     await fetch('http://localhost:3001/api/student',{
       method:"POST",
       body:JSON.stringify(data),
@@ -63,8 +62,6 @@ const StudentForm = () => {
         "Content-Type":"application/json"
       }
     })
-  
-    // Reset the form
     form.reset();
     toast.success('Created Successfully...')
   };

@@ -1,5 +1,4 @@
 'use client'
-import { useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -42,39 +41,30 @@ const TeacherForm = () => {
   const TitleOptions = ["Mr", "Mrs", "Miss", "Dr", "Prof"];
   const formSchema = z.object({
     title: z.string().nonempty(),
-    NIN: z.string().min(9).max(9),
+    nin: z.string().min(9).max(9),
     lastName: z.string().nonempty(),
     firstName: z.string().nonempty(),
     dateOfBirth: z.date().refine((date) => {
       return date !== undefined && date !== null;
     }, { message: "A date of birth is required." }),
     phoneNumber: z.string().min(11),
-    salary: z.string().min(1).max(9),
+    salary: z.string(),
   });
 
   const form = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
       title: "",
-      NIN: "",
+      nin: "",
       lastName: "",
       firstName: "",
-      dateOfBirth: null, // Provide null as default value for date fields
+      dateOfBirth: null,
       phoneNumber: "",
       salary: "",
     },
   });
 
   const onSubmit = async (data:any) => {
-    // // Retrieve existing data from localStorage
-    // const existingDataString = localStorage.getItem("teachers");
-    // const existingData = existingDataString ? JSON.parse(existingDataString) : [];
-  
-    // // Push the new data into the existing array
-    // existingData.push(data);
-  
-    // // Store the updated array back into localStorage
-    // localStorage.setItem("teachers", JSON.stringify(existingData));
     await fetch('http://localhost:3001/api/teacher',{
       method:"POST",
       body:JSON.stringify(data),
@@ -82,8 +72,6 @@ const TeacherForm = () => {
         "Content-Type":"application/json"
       }
     })
-  
-    // Reset the form
     form.reset();
     toast.success('Created Successfully...')
   };
@@ -205,7 +193,7 @@ const TeacherForm = () => {
                 />
                 <FormField
                   control={form.control}
-                  name="NIN"
+                  name="nin"
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel>
