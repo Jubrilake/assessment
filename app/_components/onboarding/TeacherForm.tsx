@@ -91,18 +91,19 @@ const TeacherForm = () => {
                   render={({ field }) => (
                   <FormItem>
                    <FormLabel>Title</FormLabel>
-                   <FormControl>
                    <Select onValueChange={field.onChange} defaultValue={field.value}>
-                     <SelectTrigger>
+                   <FormControl> 
+                   <SelectTrigger>
                       <SelectValue placeholder="Choose a title" />
                      </SelectTrigger>
+                   </FormControl>
                      <SelectContent>
                       {TitleOptions.map((option) => (
                        <SelectItem key={option} value={option}>{option}</SelectItem>
                       ))}
                      </SelectContent>
                   </Select>
-                   </FormControl>
+                  
                     
                  </FormItem>
                   )}

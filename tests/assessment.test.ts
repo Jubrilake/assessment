@@ -1,52 +1,33 @@
 import { test, expect } from '@playwright/test';
 
-// test('TeacherForm submission', async ({ page }) => {
-//   // Mock fetch
-//   await page.route('**/api/teacher', route => {
-//     route.fulfill({
-//       status: 200,
-//       body: JSON.stringify({}),
-//     });
-//   });
+test('TeacherForm submission', async ({ page }) => {
+  // Visit the page
+  await page.goto('http://localhost:3000');
+  await page.click('text=Register as a teacher');
 
+  // Fill in the form fields
+  // Single selection matching the value or label
+(await page.locator('Choose a title').selectOption('Mrs')).fill('Mrs');
+  await page.fill('input[name="lastName"]', 'Doe');
+  await page.fill('input[name="firstName"]', 'John');
+  await page.fill('input[name="dateOfBirth"]', '1995-02-10');
+  await page.fill('input[name="phoneNumber"]', '123-456-7890');
+  await page.fill('input[name="nin"]', '111111111');
+  await page.fill('input[name="salary"]', '10000');
 
-//   // Visit the page
-//   await page.goto('http://localhost:3000');
-//   await page.click('text=Register as a teacher');
+  // Submit the form
+  await page.click('text=Submit');
 
-//   // Fill in the form fields
-//   await page.selectOption('select[name="title"]', 'Mr');
-//   await page.fill('input[name="lastName"]', 'Doe');
-//   await page.fill('input[name="firstName"]', 'John');
-//   await page.fill('input[name="dateOfBirth"]', '1995-02-10');
-//   await page.fill('input[name="phoneNumber"]', '123-456-7890');
-//   await page.fill('input[name="nin"]', '111111111');
-//   await page.fill('input[name="salary"]', '10000');
+  // Wait for the success message to appear
+  await page.waitForSelector('text=Created Successfully...');
+  // Navigate to the students page
+  await page.goto('http://localhost:3000/teachers');
 
-//   // Submit the form
-//   await page.click('text=Submit');
+  // Assert that the URL has changed to /students
+  await expect(page).toHaveURL('http://localhost:3000/teachers');
+   // Assert that the URL has changed to /students
 
-//   // Wait for the success message to appear
-//   await page.waitForSelector('text=Created Successfully...');
-
-//   // Assert that the fetch was called with the correct data
-//   const fetchCall = await page.waitForRequest(request => request.url().includes('/api/teacher'));
-
-// if (!fetchCall) {
-//   throw new Error('Fetch call not found');
-// }
-
-// const postData = JSON.parse(fetchCall.postData() as string);
-//   expect(postData).toEqual({
-//     title: 'Mr',
-//     lastName: 'Doe',
-//     firstName: 'John',
-//     dateOfBirth: '2023-08-15T00:00:00.000Z', // Adjust this date if necessary
-//     phoneNumber: '123-456-7890',
-//     nin: '111111111',
-//     salary: '10000',
-//   });
-// });
+});
 
 test('should submit student form and show success popup', async ({ page }) => {
   // Start from the index page
@@ -62,6 +43,8 @@ test('should submit student form and show success popup', async ({ page }) => {
   await page.fill('input[name="phoneNumber"]', '08106453311');
   await page.fill('input[name="nin"]', '111111111');
   await page.click('button[type="submit"]');
+    // Wait for the success message to appear
+    await page.waitForSelector('text=Created Successfully...');
 
   // Navigate to the students page
   await page.goto('http://localhost:3000/students');
