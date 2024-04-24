@@ -26,7 +26,12 @@ const StudentForm = () => {
   const formSchema = z.object({
     lastName: z.string().min(1, "Last name is required."),
     firstName: z.string().min(1, "First name is required."),
-    dateOfBirth: z.string().min(1, "Date of birth is required."),
+    dateOfBirth: z.string().min(1, "Date of birth is required.").refine((dob) => {
+      const today = new Date();
+      const birthDate = new Date(dob);
+      const age = today.getFullYear() - birthDate.getFullYear();
+      return age <= 22;
+    }, { message: "You must not be above 22 years old." }),
     phoneNumber: z.string().min(1, "password is required."),
     nin: z.string().min(9).max(9),
   });
@@ -108,7 +113,7 @@ const StudentForm = () => {
                               />
                       </FormControl>
                       {form.formState.errors.dateOfBirth && (
-                        <span className="text-red-500">{form.formState.errors.dateOfBirth.message}</span>
+                        <span className="text-red-500 text-[12px]">{form.formState.errors.dateOfBirth.message}</span>
                       )}
                     </FormItem>
                   )}

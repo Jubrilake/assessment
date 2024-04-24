@@ -1,4 +1,4 @@
-'use client'
+"use client"
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -36,7 +36,12 @@ const TeacherForm = () => {
     nin: z.string().min(9).max(9),
     lastName: z.string().min(1, "Last name is required."),
     firstName: z.string().min(1, "First name is required."),
-    dateOfBirth: z.string().min(1, "Date of birth is required."),
+    dateOfBirth: z.string().min(1, "Date of birth is required.").refine((dob) => {
+      const today = new Date();
+      const birthDate = new Date(dob);
+      const age = today.getFullYear() - birthDate.getFullYear();
+      return age >= 21;
+    }, { message: "You must be at least 21 years old." }),
     phoneNumber: z.string().min(11),
     salary: z.string(),
   });
@@ -140,7 +145,7 @@ const TeacherForm = () => {
                               />
                    </FormControl>
                       {form.formState.errors.dateOfBirth && (
-                        <span className="text-red-500">{form.formState.errors.dateOfBirth.message}</span>
+                        <span className="text-red-500 text-[12px]">{form.formState.errors.dateOfBirth.message}</span>
                       )}
                     </FormItem>
                   )}
@@ -175,10 +180,10 @@ const TeacherForm = () => {
                   control={form.control}
                   name="salary"
                   render={({ field }) => (
-                    <FormItem className="col-span-2">
+                    <FormItem>
                       <FormLabel>Salary</FormLabel>
                       <FormControl>
-                        <Input type="number" {...field} />
+                        <Input type="number" placeholder="20000" {...field} />
                       </FormControl>
                     </FormItem>
                   )}
