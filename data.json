@@ -18,6 +18,15 @@
         "phoneNumber": "098106453311",
         "nin": "123456789",
         "salary": "600000"
+      },
+      {
+        "title": "Miss",
+        "lastName": "Kim",
+        "firstName": "Kal",
+        "dateOfBirth": "2024-04-08",
+        "phoneNumber": "098106453311",
+        "nin": "123456789",
+        "salary": "600000"
       }
     ]
   }

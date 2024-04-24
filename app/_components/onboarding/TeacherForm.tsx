@@ -2,11 +2,8 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
-import { format } from "date-fns";
-import { CalendarIcon } from "lucide-react";
-import { Calendar } from "@/components/ui/calendar";
+import { convertInputDate } from "@/services/helpers";
 import toast, { Toaster } from 'react-hot-toast';
 import {
   Card,
@@ -25,11 +22,6 @@ import {
   FormLabel,
 } from "../../../components/ui/form";
 import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover";
-import {
   Select,
   SelectContent,
   SelectItem,
@@ -42,18 +34,9 @@ const TeacherForm = () => {
   const formSchema = z.object({
     title: z.string().nonempty(),
     nin: z.string().min(9).max(9),
-    lastName: z.string().nonempty(),
-    firstName: z.string().nonempty(),
-    dateOfBirth: z.date().refine((date) => {
-      const today = new Date();
-      const birthDate = new Date(date);
-      let age = today.getFullYear() - birthDate.getFullYear();
-      const monthDiff = today.getMonth() - birthDate.getMonth();
-      if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
-        age--;
-      }
-      return age >= 21;
-    }, { message: "You must be at least 21 years old." }),
+    lastName: z.string().min(1, "Last name is required."),
+    firstName: z.string().min(1, "First name is required."),
+    dateOfBirth: z.string().min(1, "Date of birth is required."),
     phoneNumber: z.string().min(11),
     salary: z.string(),
   });
@@ -65,7 +48,7 @@ const TeacherForm = () => {
       nin: "",
       lastName: "",
       firstName: "",
-      dateOfBirth: null,
+      dateOfBirth: "",
       phoneNumber: "",
       salary: "",
     },
@@ -146,42 +129,16 @@ const TeacherForm = () => {
                   control={form.control}
                   name="dateOfBirth"
                   render={({ field }) => (
-                    <FormItem className="flex flex-col">
+                    <FormItem className="flex flex-col mt-2">
                       <FormLabel>Date of birth</FormLabel>
-                      <Popover>
-                        <PopoverTrigger asChild>
-                          <FormControl>
-                            <Button
-                              variant={"outline"}
-                              className={cn(
-                                "w-full pl-3 text-left font-normal",
-                                !field.value && "text-muted-foreground"
-                              )}
-                            >
-                              {field.value ? (
-                                format(field.value, "PPP")
-                              ) : (
-                                <span>Pick a date</span>
-                              )}
-                              <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
-                            </Button>
-                          </FormControl>
-                        </PopoverTrigger>
-                        <PopoverContent
-                          className="w-auto p-0"
-                          align="start"
-                        >
-                          <Calendar
-                            mode="single"
-                            selected={field.value!}
-                            onSelect={field.onChange}
-                            disabled={(date) =>
-                              date > new Date() || date < new Date("1900-01-01")
-                            }
-                            initialFocus
-                          />
-                        </PopoverContent>
-                      </Popover>
+                   <FormControl>
+                   <Input
+                        {...field}
+                           type="date"
+                            value={convertInputDate(field.value)}
+                            autoComplete="new-password"
+                              />
+                   </FormControl>
                       {form.formState.errors.dateOfBirth && (
                         <span className="text-red-500">{form.formState.errors.dateOfBirth.message}</span>
                       )}
