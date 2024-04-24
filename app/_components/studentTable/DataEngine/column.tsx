@@ -99,7 +99,7 @@ export function ColumnWrapper() {
               </AlertDialogTrigger>
               <AlertDialogContent>
                 <AlertDialogHeader>
-                  <AlertDialogTitle>Delete Post</AlertDialogTitle>
+                  <AlertDialogTitle>Delete User</AlertDialogTitle>
                   <AlertDialogDescription>
                     Are you sure you want to delete this user: {row.original.lastName}? You cannot undo this action 
                   </AlertDialogDescription>

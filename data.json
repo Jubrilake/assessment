@@ -153,6 +153,15 @@
         "phoneNumber": "098106453311",
         "nin": "123456789",
         "salary": "600000"
+      },
+      {
+        "title": "Dr",
+        "lastName": "Water",
+        "firstName": "King",
+        "dateOfBirth": "1995-02-24",
+        "phoneNumber": "08070422399",
+        "nin": "123464321",
+        "salary": "800000"
       }
     ]
   }
