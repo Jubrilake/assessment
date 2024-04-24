@@ -67,6 +67,7 @@ const TeacherForm = () => {
         "Content-Type":"application/json"
       }
     })
+
     form.reset();
     toast.success('Created Successfully...')
   };
@@ -90,18 +91,19 @@ const TeacherForm = () => {
                   render={({ field }) => (
                   <FormItem>
                    <FormLabel>Title</FormLabel>
-                    <Select onValueChange={field.onChange} defaultValue={field.value}>
-                     <FormControl>
-                      <SelectTrigger>
-                       <SelectValue placeholder="Choose a title" />
-                      </SelectTrigger>
-                     </FormControl>
-                      <SelectContent>
-                       {TitleOptions.map((option) => (
-                        <SelectItem key={option} value={option}>{option}</SelectItem>
-                       ))}
-                      </SelectContent>
-                   </Select>
+                   <FormControl>
+                   <Select onValueChange={field.onChange} defaultValue={field.value}>
+                     <SelectTrigger>
+                      <SelectValue placeholder="Choose a title" />
+                     </SelectTrigger>
+                     <SelectContent>
+                      {TitleOptions.map((option) => (
+                       <SelectItem key={option} value={option}>{option}</SelectItem>
+                      ))}
+                     </SelectContent>
+                  </Select>
+                   </FormControl>
+                    
                  </FormItem>
                   )}
                 />
@@ -136,20 +138,20 @@ const TeacherForm = () => {
                   render={({ field }) => (
                     <FormItem className="flex flex-col mt-2">
                       <FormLabel>Date of birth</FormLabel>
-                   <FormControl>
-                   <Input
-                        {...field}
-                           type="date"
+                        <FormControl>
+                          <Input
+                            {...field}
+                            type="date"
                             value={convertInputDate(field.value)}
                             autoComplete="new-password"
-                              />
-                   </FormControl>
-                      {form.formState.errors.dateOfBirth && (
-                        <span className="text-red-500 text-[12px]">{form.formState.errors.dateOfBirth.message}</span>
+                           />
+                        </FormControl>
+                           {form.formState.errors.dateOfBirth && (
+                           <span className="text-red-500 text-[12px]">{form.formState.errors.dateOfBirth.message}</span>
                       )}
-                    </FormItem>
-                  )}
-                />
+                      </FormItem>
+                     )}
+                    />
                 <FormField
                   control={form.control}
                   name="phoneNumber"

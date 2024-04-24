@@ -7,6 +7,20 @@
         "dateOfBirth": "2018-11-06T23:00:00.000Z",
         "phoneNumber": "098106453311",
         "nin": "123456789"
+      },
+      {
+        "lastName": "Doe",
+        "firstName": "John",
+        "dateOfBirth": "2021-02-10",
+        "phoneNumber": "08106453311",
+        "nin": "111111111"
+      },
+      {
+        "lastName": "Doe",
+        "firstName": "John",
+        "dateOfBirth": "2021-02-10",
+        "phoneNumber": "08106453311",
+        "nin": "111111111"
       }
     ],
     "teacher": [
