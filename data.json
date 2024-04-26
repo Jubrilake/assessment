@@ -133,6 +133,48 @@
         "dateOfBirth": "2021-02-10",
         "phoneNumber": "08106453311",
         "nin": "111111111"
+      },
+      {
+        "lastName": "Doe",
+        "firstName": "John",
+        "dateOfBirth": "2021-02-10",
+        "phoneNumber": "08106453311",
+        "nin": "111111111"
+      },
+      {
+        "lastName": "Doe",
+        "firstName": "John",
+        "dateOfBirth": "2021-02-10",
+        "phoneNumber": "08106453311",
+        "nin": "111111111"
+      },
+      {
+        "lastName": "Doe",
+        "firstName": "John",
+        "dateOfBirth": "2021-02-10",
+        "phoneNumber": "08106453311",
+        "nin": "111111111"
+      },
+      {
+        "lastName": "Doe",
+        "firstName": "John",
+        "dateOfBirth": "2021-02-10",
+        "phoneNumber": "08106453311",
+        "nin": "111111111"
+      },
+      {
+        "lastName": "Doe",
+        "firstName": "John",
+        "dateOfBirth": "2021-02-10",
+        "phoneNumber": "08106453311",
+        "nin": "111111111"
+      },
+      {
+        "lastName": "Doe",
+        "firstName": "John",
+        "dateOfBirth": "2021-02-10",
+        "phoneNumber": "08106453311",
+        "nin": "111111111"
       }
     ],
     "teacher": [
@@ -162,6 +204,15 @@
         "phoneNumber": "08070422399",
         "nin": "123464321",
         "salary": "800000"
+      },
+      {
+        "title": "Mr",
+        "lastName": "Doe",
+        "firstName": "John",
+        "dateOfBirth": "1995-02-10",
+        "phoneNumber": "123-456-7890",
+        "nin": "111111111",
+        "salary": "10000"
       }
     ]
   }

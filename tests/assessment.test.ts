@@ -6,8 +6,7 @@ test('TeacherForm submission', async ({ page }) => {
   await page.click('text=Register as a teacher');
 
   // Fill in the form fields
-  // Single selection matching the value or label
-(await page.locator('Choose a title').selectOption('Mrs')).fill('Mrs');
+  await page.selectOption('select[name="title"]', 'Mr');
   await page.fill('input[name="lastName"]', 'Doe');
   await page.fill('input[name="firstName"]', 'John');
   await page.fill('input[name="dateOfBirth"]', '1995-02-10');
@@ -20,14 +19,14 @@ test('TeacherForm submission', async ({ page }) => {
 
   // Wait for the success message to appear
   await page.waitForSelector('text=Created Successfully...');
-  // Navigate to the students page
+
+  // Navigate to the teachers page
   await page.goto('http://localhost:3000/teachers');
 
-  // Assert that the URL has changed to /students
+  // Assert that the URL has changed to /teachers
   await expect(page).toHaveURL('http://localhost:3000/teachers');
-   // Assert that the URL has changed to /students
-
 });
+
 
 test('should submit student form and show success popup', async ({ page }) => {
   // Start from the index page

@@ -70,6 +70,7 @@ const TeacherForm = () => {
 
     form.reset();
     toast.success('Created Successfully...')
+    console.log(data)
   };
   
   return (
@@ -90,19 +91,13 @@ const TeacherForm = () => {
                   name="title"
                   render={({ field }) => (
                   <FormItem>
-                   <FormLabel>Title</FormLabel>
-                   <Select onValueChange={field.onChange} defaultValue={field.value}>
-                   <FormControl> 
-                   <SelectTrigger>
-                      <SelectValue placeholder="Choose a title" />
-                     </SelectTrigger>
-                   </FormControl>
-                     <SelectContent>
-                      {TitleOptions.map((option) => (
-                       <SelectItem key={option} value={option}>{option}</SelectItem>
-                      ))}
-                     </SelectContent>
-                  </Select>
+                   <label>Title</label>
+                   <select {...field} className="block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:border-blue-400">
+  <option value="" disabled selected hidden>Choose a title</option>
+  {TitleOptions.map((option) => (
+    <option key={option} value={option}>{option}</option>
+  ))}
+</select>
                   
                     
                  </FormItem>
