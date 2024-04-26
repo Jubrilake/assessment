@@ -19,15 +19,12 @@ export async function GET(){
     // Parse the JSON data
     const jsonData = JSON.parse(data);
     let student = jsonData[0]["student"];
-console.log(student)
 return new Response(JSON.stringify(student))
 }
 
 // Post req
 export async function POST(request: Request) {
     const res = await request.json() // res now contains body
-       // Read the JSON file
-       console.log(res)
 const filePath = path.resolve('./data.json');
 const data = fs.readFileSync(filePath, 'utf-8');
 

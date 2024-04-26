@@ -28,153 +28,6 @@
         "dateOfBirth": "2021-02-10",
         "phoneNumber": "08106453311",
         "nin": "111111111"
-      },
-      {
-        "lastName": "Doe",
-        "firstName": "John",
-        "dateOfBirth": "2021-02-10",
-        "phoneNumber": "08106453311",
-        "nin": "111111111"
-      },
-      {
-        "lastName": "Doe",
-        "firstName": "John",
-        "dateOfBirth": "2021-02-10",
-        "phoneNumber": "08106453311",
-        "nin": "111111111"
-      },
-      {
-        "lastName": "Doe",
-        "firstName": "John",
-        "dateOfBirth": "2021-02-10",
-        "phoneNumber": "08106453311",
-        "nin": "111111111"
-      },
-      {
-        "lastName": "Doe",
-        "firstName": "John",
-        "dateOfBirth": "2021-02-10",
-        "phoneNumber": "08106453311",
-        "nin": "111111111"
-      },
-      {
-        "lastName": "Doe",
-        "firstName": "John",
-        "dateOfBirth": "2021-02-10",
-        "phoneNumber": "08106453311",
-        "nin": "111111111"
-      },
-      {
-        "lastName": "Doe",
-        "firstName": "John",
-        "dateOfBirth": "2021-02-10",
-        "phoneNumber": "08106453311",
-        "nin": "111111111"
-      },
-      {
-        "lastName": "Doe",
-        "firstName": "John",
-        "dateOfBirth": "2021-02-10",
-        "phoneNumber": "08106453311",
-        "nin": "111111111"
-      },
-      {
-        "lastName": "Doe",
-        "firstName": "John",
-        "dateOfBirth": "2021-02-10",
-        "phoneNumber": "08106453311",
-        "nin": "111111111"
-      },
-      {
-        "lastName": "Doe",
-        "firstName": "John",
-        "dateOfBirth": "2021-02-10",
-        "phoneNumber": "08106453311",
-        "nin": "111111111"
-      },
-      {
-        "lastName": "Doe",
-        "firstName": "John",
-        "dateOfBirth": "2021-02-10",
-        "phoneNumber": "08106453311",
-        "nin": "111111111"
-      },
-      {
-        "lastName": "Doe",
-        "firstName": "John",
-        "dateOfBirth": "2021-02-10",
-        "phoneNumber": "08106453311",
-        "nin": "111111111"
-      },
-      {
-        "lastName": "Doe",
-        "firstName": "John",
-        "dateOfBirth": "2021-02-10",
-        "phoneNumber": "08106453311",
-        "nin": "111111111"
-      },
-      {
-        "lastName": "Doe",
-        "firstName": "John",
-        "dateOfBirth": "2021-02-10",
-        "phoneNumber": "08106453311",
-        "nin": "111111111"
-      },
-      {
-        "lastName": "Doe",
-        "firstName": "John",
-        "dateOfBirth": "2021-02-10",
-        "phoneNumber": "08106453311",
-        "nin": "111111111"
-      },
-      {
-        "lastName": "Doe",
-        "firstName": "John",
-        "dateOfBirth": "2021-02-10",
-        "phoneNumber": "08106453311",
-        "nin": "111111111"
-      },
-      {
-        "lastName": "Doe",
-        "firstName": "John",
-        "dateOfBirth": "2021-02-10",
-        "phoneNumber": "08106453311",
-        "nin": "111111111"
-      },
-      {
-        "lastName": "Doe",
-        "firstName": "John",
-        "dateOfBirth": "2021-02-10",
-        "phoneNumber": "08106453311",
-        "nin": "111111111"
-      },
-      {
-        "lastName": "Doe",
-        "firstName": "John",
-        "dateOfBirth": "2021-02-10",
-        "phoneNumber": "08106453311",
-        "nin": "111111111"
-      },
-      {
-        "lastName": "Doe",
-        "firstName": "John",
-        "dateOfBirth": "2021-02-10",
-        "phoneNumber": "08106453311",
-        "nin": "111111111"
-      },
-      {
-        "lastName": "Doe",
-        "firstName": "John",
-        "dateOfBirth": "2021-02-10",
-        "phoneNumber": "08106453311",
-        "nin": "111111111"
-      },
-      {
-        "lastName": "Doe",
-        "firstName": "John",
-        "dateOfBirth": "2021-02-10",
-        "phoneNumber": "08106453311",
-        "nin": "111111111"
       }
     ],
     "teacher": [
@@ -182,28 +35,28 @@
         "title": "Mr",
         "lastName": "Doe",
         "firstName": "John",
-        "dateOfBirth": "1997-07-09T23:00:00.000Z",
-        "phoneNumber": "098106453311",
-        "nin": "123456789",
-        "salary": "600000"
+        "dateOfBirth": "1995-02-10",
+        "phoneNumber": "123-456-7890",
+        "nin": "111111111",
+        "salary": "10000"
       },
       {
-        "title": "Miss",
-        "lastName": "Kim",
-        "firstName": "Kal",
-        "dateOfBirth": "2024-04-08",
-        "phoneNumber": "098106453311",
-        "nin": "123456789",
-        "salary": "600000"
+        "title": "Mr",
+        "lastName": "Doe",
+        "firstName": "John",
+        "dateOfBirth": "1995-02-10",
+        "phoneNumber": "123-456-7890",
+        "nin": "111111111",
+        "salary": "10000"
       },
       {
-        "title": "Dr",
-        "lastName": "Water",
-        "firstName": "King",
-        "dateOfBirth": "1995-02-24",
-        "phoneNumber": "08070422399",
-        "nin": "123464321",
-        "salary": "800000"
+        "title": "Mr",
+        "lastName": "Doe",
+        "firstName": "John",
+        "dateOfBirth": "1995-02-10",
+        "phoneNumber": "123-456-7890",
+        "nin": "111111111",
+        "salary": "10000"
       },
       {
         "title": "Mr",

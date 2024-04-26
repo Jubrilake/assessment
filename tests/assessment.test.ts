@@ -27,10 +27,9 @@ test('TeacherForm submission', async ({ page }) => {
   await expect(page).toHaveURL('http://localhost:3000/teachers');
 });
 
-
-test('should submit student form and show success popup', async ({ page }) => {
+test('StudentForm submission', async ({ page }) => {
   // Start from the index page
-  await page.goto('http://localhost:3000/');
+  await page.goto('http://localhost:3000');
 
   // Switch to the student form tab
   await page.click('text=Register as a student');
@@ -42,8 +41,9 @@ test('should submit student form and show success popup', async ({ page }) => {
   await page.fill('input[name="phoneNumber"]', '08106453311');
   await page.fill('input[name="nin"]', '111111111');
   await page.click('button[type="submit"]');
-    // Wait for the success message to appear
-    await page.waitForSelector('text=Created Successfully...');
+
+  // Wait for the success message to appear
+  await page.waitForSelector('text=Created Successfully...');
 
   // Navigate to the students page
   await page.goto('http://localhost:3000/students');
